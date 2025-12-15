@@ -1,0 +1,49 @@
+
+> my-v0-project@0.1.0 dev /app
+> next dev
+
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 1893ms
+ ○ Compiling / ...
+ ✓ Compiled / in 7.2s (860 modules)
+ GET / 200 in 8022ms
+[SERVER LOG] User Activity: Page Loaded
+[SERVER LOG] Details: { defaultTab: 'home' }
+ POST / 200 in 574ms
+ GET / 200 in 82ms
+[SERVER LOG] User Activity: Page Loaded
+[SERVER LOG] Details: { defaultTab: 'home' }
+ POST / 200 in 511ms
+ ⨯ ./app/page.tsx
+Error:   [31mx[0m Expected '{', got 'D'
+    ,-[[36;1;4m/app/app/page.tsx[0m:74:1]
+ [2m71[0m |     const logInitialLoad = async () => {
+ [2m72[0m |       try {
+ [2m73[0m |         await logUserActivity("Page Loaded", { defaultTab: activeTab })
+ [2m74[0m |       } catch (error) D
+    : [35;1m                      ^[0m
+ [2m75[0m |         console.error("Error logging page load:", error)
+ [2m76[0m |       }
+ [2m77[0m |     }
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page.tsx
+ ✓ Compiled in 595ms (842 modules)
+ GET / 200 in 254ms
+[SERVER LOG] User Activity: Page Loaded
+[SERVER LOG] Details: { defaultTab: 'home' }
+ POST / 200 in 542ms
+ ✓ Compiled in 633ms (842 modules)
