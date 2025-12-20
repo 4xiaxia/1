@@ -26,7 +26,7 @@ export function AnnouncementBanner({ message }: AnnouncementBannerProps) {
       <button
         onClick={() => setIsVisible(false)}
         className="ml-4 p-1 rounded-full hover:bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        aria-label="关闭公告"
+        aria-label="Dismiss"
       >
         <X className="h-4 w-4" />
       </button>
