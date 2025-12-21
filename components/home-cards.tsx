@@ -44,7 +44,11 @@ export function HomeCards() {
         <h2 className="font-semibold text-base mb-3">常用工具</h2>
         <div className="grid grid-cols-4 gap-2">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="w-full h-16 bg-gray-200 rounded-md"></div>
+            <button
+              key={i}
+              aria-label={`常用工具 ${i + 1}`}
+              className="w-full h-16 bg-gray-200 rounded-md transition-colors hover:bg-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            ></button>
           ))}
         </div>
       </div>
@@ -61,7 +65,11 @@ export function HomeCards() {
         <h2 className="font-semibold text-base mb-3">热门知识库</h2>
         <div className="grid grid-cols-4 gap-2">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="w-full h-16 bg-gray-200 rounded-md"></div>
+            <button
+              key={i}
+              aria-label={`热门知识库 ${i + 1}`}
+              className="w-full h-16 bg-gray-200 rounded-md transition-colors hover:bg-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            ></button>
           ))}
         </div>
       </div>
