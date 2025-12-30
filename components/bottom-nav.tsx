@@ -16,35 +16,30 @@ export function BottomNav({ activeTab, onTabChange, showIframeView }: BottomNavP
       name: "首页",
       icon: Home,
       type: "home",
-      ariaLabel: "首页",
       action: () => onTabChange("home"),
     },
     {
       name: "搜云盘",
       icon: Search,
       type: "search",
-      ariaLabel: "搜索云盘",
       action: () => onTabChange("search"),
     },
     {
       name: "搜飞书",
       icon: Book,
       type: "feisoo",
-      ariaLabel: "搜索飞书",
       action: () => onTabChange("feisoo"),
     },
     {
       name: "指令库",
       icon: Command,
       type: "prompts",
-      ariaLabel: "查看指令库",
       action: () => onTabChange("prompts"),
     },
     {
       name: "知识库",
       icon: FileText,
       type: "knowledge",
-      ariaLabel: "查看知识库",
       action: () => onTabChange("knowledge"),
     },
     // Removed "返回" item
@@ -66,7 +61,6 @@ export function BottomNav({ activeTab, onTabChange, showIframeView }: BottomNavP
               className={`flex flex-col items-center p-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 group my-0 py-1.5 rounded-3xl px-12 ${isActive ? "text-blue-600 bg-blue-50 shadow-sm" : "text-gray-500 hover:text-blue-600 hover:bg-blue-50 hover:shadow-md"}
             active:scale-95
           `}
-              aria-label={item.ariaLabel}
               onClick={item.action}
             >
               <IconComponent
