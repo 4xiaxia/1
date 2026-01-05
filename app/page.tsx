@@ -180,9 +180,9 @@ export default function AISearchApp() {
                     <p className="text-red-500 mb-4">页面加载失败</p>
                     <button
                       onClick={reloadIframe}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="group flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                      <RefreshCw className="w-4 h-4" />
+                      <RefreshCw className="w-4 h-4 group-hover:animate-spin" />
                       重新加载
                     </button>
                   </>
