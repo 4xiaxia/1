@@ -13,6 +13,7 @@ export default function AISearchApp() {
   const [activeTab, setActiveTab] = useState("home")
   const [iframeLoading, setIframeLoading] = useState(true)
   const [iframeError, setIframeError] = useState(false)
+  const [isReloading, setIsReloading] = useState(false)
   const [iframeSrc, setIframeSrc] = useState("https://gongke.net/")
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const isMobile = useIsMobile()
@@ -56,8 +57,7 @@ export default function AISearchApp() {
 
   // 重新加载iframe
   const reloadIframe = () => {
-    setIframeLoading(true)
-    setIframeError(false)
+    setIsReloading(true)
     if (iframeRef.current) {
       iframeRef.current.src = iframeSrc
     }
@@ -157,10 +157,12 @@ export default function AISearchApp() {
               onLoad={() => {
                 setIframeLoading(false)
                 setIframeError(false)
+                setIsReloading(false)
               }}
               onError={() => {
                 setIframeLoading(false)
                 setIframeError(true)
+                setIsReloading(false)
               }}
             ></iframe>
 
@@ -180,10 +182,11 @@ export default function AISearchApp() {
                     <p className="text-red-500 mb-4">页面加载失败</p>
                     <button
                       onClick={reloadIframe}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      disabled={isReloading}
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-blue-400"
                     >
-                      <RefreshCw className="w-4 h-4" />
-                      重新加载
+                      <RefreshCw className={`w-4 h-4 ${isReloading ? "animate-spin" : ""}`} />
+                      {isReloading ? "加载中..." : "重新加载"}
                     </button>
                   </>
                 )}
