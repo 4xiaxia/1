@@ -13,6 +13,7 @@ export default function AISearchApp() {
   const [activeTab, setActiveTab] = useState("home")
   const [iframeLoading, setIframeLoading] = useState(true)
   const [iframeError, setIframeError] = useState(false)
+  const [isReloading, setIsReloading] = useState(false)
   const [iframeSrc, setIframeSrc] = useState("https://gongke.net/")
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const isMobile = useIsMobile()
@@ -56,6 +57,7 @@ export default function AISearchApp() {
 
   // 重新加载iframe
   const reloadIframe = () => {
+    setIsReloading(true)
     setIframeLoading(true)
     setIframeError(false)
     if (iframeRef.current) {
@@ -157,10 +159,12 @@ export default function AISearchApp() {
               onLoad={() => {
                 setIframeLoading(false)
                 setIframeError(false)
+                setIsReloading(false)
               }}
               onError={() => {
                 setIframeLoading(false)
                 setIframeError(true)
+                setIsReloading(false)
               }}
             ></iframe>
 
@@ -180,10 +184,20 @@ export default function AISearchApp() {
                     <p className="text-red-500 mb-4">页面加载失败</p>
                     <button
                       onClick={reloadIframe}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-blue-400 disabled:cursor-not-allowed"
+                      disabled={isReloading}
                     >
-                      <RefreshCw className="w-4 h-4" />
-                      重新加载
+                      {isReloading ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          加载中...
+                        </>
+                      ) : (
+                        <>
+                          <RefreshCw className="w-4 h-4" />
+                          重新加载
+                        </>
+                      )}
                     </button>
                   </>
                 )}
