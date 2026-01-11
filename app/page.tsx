@@ -169,6 +169,8 @@ export default function AISearchApp() {
               <div
                 id="iframeStatus"
                 className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 transition-opacity duration-300"
+                onClick={iframeError ? reloadIframe : undefined}
+                style={{ cursor: iframeError ? "pointer" : "default" }}
               >
                 {iframeLoading ? (
                   <>
@@ -176,16 +178,19 @@ export default function AISearchApp() {
                     <p className="text-gray-600">加载页面中...</p>
                   </>
                 ) : (
-                  <>
+                  <div className="text-center">
                     <p className="text-red-500 mb-4">页面加载失败</p>
                     <button
-                      onClick={reloadIframe}
+                      onClick={(e) => {
+                        e.stopPropagation() // 防止事件冒泡到父div
+                        reloadIframe()
+                      }}
                       className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <RefreshCw className="w-4 h-4" />
                       重新加载
                     </button>
-                  </>
+                  </div>
                 )}
               </div>
             )}
