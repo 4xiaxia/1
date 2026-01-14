@@ -94,7 +94,7 @@ export default function AISearchApp() {
               <h1 className="text-lg font-semibold text-blue-600 m-0">AI·DEMO学习搜索</h1>
               <div className="flex gap-2">
                 <button
-                  id="closeBtn"
+                  title="关闭应用"
                   className="hidden p-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full"
                   aria-label="关闭应用"
                 >
@@ -126,7 +126,7 @@ export default function AISearchApp() {
               <h1 className="text-lg font-semibold text-blue-600 m-0">AI·DEMO学习搜索</h1>
               <div className="flex gap-2">
                 <button
-                  id="closeBtn"
+                  title="关闭应用"
                   className="hidden p-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full"
                   aria-label="关闭应用"
                 >
