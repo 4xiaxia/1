@@ -170,7 +170,9 @@ export default function AISearchApp() {
             {(iframeLoading || iframeError) && (
               <div
                 id="iframeStatus"
-                className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 transition-opacity duration-300"
+                className={`absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 transition-opacity duration-300 ${
+                  iframeError ? "hover:bg-gray-100/90 transition-colors" : ""
+                }`}
                 onClick={iframeError ? reloadIframe : undefined}
                 style={{ cursor: iframeError ? "pointer" : "default" }}
               >
