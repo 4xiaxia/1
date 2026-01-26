@@ -68,6 +68,7 @@ export function BottomNav({ activeTab, onTabChange, showIframeView }: BottomNavP
           `}
               aria-label={item.ariaLabel}
               onClick={item.action}
+              title={item.ariaLabel}
             >
               <IconComponent
                 className={`w-6 h-6 mb-1 transition-colors duration-200 ${
