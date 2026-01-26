@@ -67,6 +67,7 @@ export function BottomNav({ activeTab, onTabChange, showIframeView }: BottomNavP
             active:scale-95
           `}
               aria-label={item.ariaLabel}
+              title={item.ariaLabel}
               onClick={item.action}
             >
               <IconComponent
