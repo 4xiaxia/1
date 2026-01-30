@@ -175,12 +175,12 @@ export default function AISearchApp() {
                 style={{ cursor: iframeError ? "pointer" : "default" }}
               >
                 {iframeLoading ? (
-                  <>
+                  <div className="text-center" role="status" aria-live="polite">
                     <div className="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
                     <p className="text-gray-600">加载页面中...</p>
-                  </>
+                  </div>
                 ) : (
-                  <div className="text-center">
+                  <div className="text-center" role="alert">
                     <p className="text-red-500 mb-4">页面加载失败</p>
                     <button
                       onClick={(e) => {
