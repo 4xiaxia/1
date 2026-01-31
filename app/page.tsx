@@ -170,13 +170,22 @@ export default function AISearchApp() {
             {(iframeLoading || iframeError) && (
               <div
                 id="iframeStatus"
-                className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 transition-opacity duration-300"
+                role={iframeError ? "button" : undefined}
+                tabIndex={iframeError ? 0 : -1}
+                className={`absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 transition-all duration-300 ${
+                  iframeError ? "hover:bg-opacity-100 cursor-pointer" : "cursor-default"
+                }`}
                 onClick={iframeError ? reloadIframe : undefined}
-                style={{ cursor: iframeError ? "pointer" : "default" }}
+                onKeyDown={(e) => {
+                  if (iframeError && (e.key === "Enter" || e.key === " ")) {
+                    e.preventDefault()
+                    reloadIframe()
+                  }
+                }}
               >
                 {iframeLoading ? (
                   <>
-                    <div className="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
+                    <div className="w-10 h-10 loading-spinner-web3 mb-4"></div>
                     <p className="text-gray-600">加载页面中...</p>
                   </>
                 ) : (
