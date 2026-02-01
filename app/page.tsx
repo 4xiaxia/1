@@ -170,24 +170,25 @@ export default function AISearchApp() {
             {(iframeLoading || iframeError) && (
               <div
                 id="iframeStatus"
-                className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 transition-opacity duration-300"
+                className={`absolute inset-0 flex flex-col items-center justify-center bg-white transition-all duration-300 ${
+                  iframeError ? "bg-opacity-95 hover:bg-gray-50/95 cursor-pointer" : "bg-opacity-90 cursor-default"
+                }`}
                 onClick={iframeError ? reloadIframe : undefined}
-                style={{ cursor: iframeError ? "pointer" : "default" }}
               >
                 {iframeLoading ? (
                   <>
-                    <div className="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
+                    <div className="w-10 h-10 loading-spinner-web3 mb-4"></div>
                     <p className="text-gray-600">加载页面中...</p>
                   </>
                 ) : (
                   <div className="text-center">
-                    <p className="text-red-500 mb-4">页面加载失败</p>
+                    <p className="text-red-500 mb-4 font-medium">页面加载失败</p>
                     <button
                       onClick={(e) => {
                         e.stopPropagation() // 防止事件冒泡到父div
                         reloadIframe()
                       }}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 mx-auto"
                     >
                       <RefreshCw className="w-4 h-4" />
                       重新加载
